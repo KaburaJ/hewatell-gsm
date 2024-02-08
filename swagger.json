@@ -1,0 +1,300 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "HewaTell API",
+    "description": "API Documentation for HewaTell",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Root endpoint for testing database connection",
+        "description": "Welcome message",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gsm": {
+      "get": {
+        "summary": "View all registered devices",
+        "description": "Endpoint to GET all registered devices",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gsm/:id": {
+      "get": {
+        "summary": "View the details of a particular registered devices",
+        "description": "This endpoint allows users to view details of a specific registered device identified by its unique ID.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "Description": "A message indicating the status of the operation."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gsm/delete/:id": {
+        "delete": {
+          "summary": "Delete the details of a particular registered devices",
+          "description": "This endpoint allows users to delete the details of a specific registered device identified by its unique ID.",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "Description": "A message indicating the status of the operation."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+    "/api/gsm/registration": {
+      "post": {
+        "summary": "Register a new device",
+        "description": "Endpoint to register a new device",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "DeviceCode": {
+                    "type": "string",
+                    "description": "This is the Phone Number/ IMEI of the GSM"
+                  },
+                  "CO": {
+                    "type": "string",
+                    "description": "The Carbon(iv)oxide value"
+                  },
+                  "DUST": {
+                    "type": "string",
+                    "description": "The dust level"
+                  },
+                  "ETHYL": {
+                    "type": "string",
+                    "description": "The ETHYL level"
+                  },
+                  "NO2": {
+                    "type": "string",
+                    "description": "The NO2 value"
+                  },
+                  "VOC": {
+                    "type": "string",
+                    "description": "The VOC value"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "Id": {
+                          "type": "Integer",
+                          "description": "This is the database Id of the GSM"
+                        },
+                        "DeviceCode": {
+                          "type": "string",
+                          "description": "This is the Phone Number/ IMEI of the GSM"
+                        },
+                        "CO": {
+                          "type": "string",
+                          "description": "The Carbon(iv)oxide value"
+                        },
+                        "DUST": {
+                          "type": "string",
+                          "description": "The dust level"
+                        },
+                        "ETHYL": {
+                          "type": "string",
+                          "description": "The ETHYL level"
+                        },
+                        "NO2": {
+                          "type": "string",
+                          "description": "The NO2 value"
+                        },
+                        "VOC": {
+                          "type": "string",
+                          "description": "The VOC value"
+                        },
+                        "Created_at": {
+                          "type": "Date",
+                          "description": "This is the registration date of the GSM"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gsm/update/:id": {
+      "put": {
+        "summary": "Register a new device",
+        "description": "Endpoint to register a new device",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "Integer",
+                    "description": "This is the particular GSM you would like to update"
+                  },
+                  "DeviceCode": {
+                    "type": "string",
+                    "description": "This is the Phone Number/ IMEI of the GSM"
+                  },
+                  "CO": {
+                    "type": "string",
+                    "description": "The Carbon(iv)oxide value"
+                  },
+                  "DUST": {
+                    "type": "string",
+                    "description": "The dust level"
+                  },
+                  "ETHYL": {
+                    "type": "string",
+                    "description": "The ETHYL level"
+                  },
+                  "NO2": {
+                    "type": "string",
+                    "description": "The NO2 value"
+                  },
+                  "VOC": {
+                    "type": "string",
+                    "description": "The VOC value"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "Id": {
+                          "type": "Integer",
+                          "description": "This is the database Id of the GSM"
+                        },
+                        "DeviceCode": {
+                          "type": "string",
+                          "description": "This is the Phone Number/ IMEI of the GSM"
+                        },
+                        "CO": {
+                          "type": "string",
+                          "description": "The Carbon(iv)oxide value"
+                        },
+                        "DUST": {
+                          "type": "string",
+                          "description": "The dust level"
+                        },
+                        "ETHYL": {
+                          "type": "string",
+                          "description": "The ETHYL level"
+                        },
+                        "NO2": {
+                          "type": "string",
+                          "description": "The NO2 value"
+                        },
+                        "VOC": {
+                          "type": "string",
+                          "description": "The VOC value"
+                        },
+                        "Created_at": {
+                          "type": "Date",
+                          "description": "This is the registration date of the GSM"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
