@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/registration", async (req, res) => {
+router.post("/registration/data", async (req, res) => {
   try {
     var createdData = await gsmService.createGsmData(req.body);
     res.status(201).json(createdData);
